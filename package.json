@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier --write 'src/**/*.{ts,tsx}'",
+    "prettier": "prettier --write 'src/**/*.{ts,tsx}' './server.mjs'",
     "format": "yarn lint && yarn prettier",
     "server": "node ./server.mjs"
   },
@@ -16,12 +16,16 @@
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
+    "express": "^4.18.2",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "4.9.4"
+    "typescript": "4.9.4",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
