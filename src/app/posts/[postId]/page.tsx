@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Container } from '../../../components/layout/Container'
 
 import { readPost } from './data'
+import { ClientAuthorToolbar } from './components/ClientAuthorToolbar'
 
 const Page: (props: {
   params: { postId: string }
@@ -17,18 +18,18 @@ const Page: (props: {
   return (
     <>
       <Container>
-        <div className="flex justify-between mb-4">
-          <div>
-            <Link href="/posts" className="link link-primary">
-              Back
-            </Link>
-          </div>
+        <div className="py-4">
+          <Link href="/posts" className="link link-primary">
+            Back
+          </Link>
         </div>
       </Container>
 
       <main>
         <Container>
           <div className="space-y-6 mb-6">
+            <ClientAuthorToolbar postId={params.postId} />
+
             <div className="space-y-2">
               <div>
                 <h1 className="text-4xl font-bold">{post.title}</h1>

@@ -197,8 +197,8 @@ app.patch('/posts/:postId', async (req, res) => {
 
   const post = posts.find((post) => post.id === postId)
 
-  if (!post || post.user.id !== user.id) {
-    res.status(403).json({ message: 'Forbidden' })
+  if (!post) {
+    res.status(404).json({ message: 'Not Found' })
     return
   }
 
@@ -230,8 +230,8 @@ app.delete('/posts/:postId', async (req, res) => {
 
   const post = posts.find((post) => post.id === postId)
 
-  if (!post || post.user.id !== user.id) {
-    res.status(403).json({ message: 'Forbidden' })
+  if (!post) {
+    res.status(404).json({ message: 'Not Found' })
     return
   }
 

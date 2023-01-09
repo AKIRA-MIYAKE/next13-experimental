@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 
 import { Container } from '../../components/layout/Container'
 
+import { ClientAuthorToolbar } from './components/ClientAuthorToolbar'
 import { ServerPostList } from './components/ServerPostList'
 
 const Page: () => Promise<JSX.Element> = async () => {
@@ -9,6 +10,8 @@ const Page: () => Promise<JSX.Element> = async () => {
     <main>
       <Container>
         <div className="space-y-6 mb-6">
+          <ClientAuthorToolbar />
+
           <div>
             <h1 className="text-4xl font-bold">Posts</h1>
           </div>

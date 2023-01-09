@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
 
+import { AuthContextProvider } from '../contexts/AuthContext'
+
 import '../styles/global.css'
 
 const RootLayout: (props: { children: ReactNode }) => JSX.Element = ({
@@ -12,7 +14,9 @@ const RootLayout: (props: { children: ReactNode }) => JSX.Element = ({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        <AuthContextProvider>{children}</AuthContextProvider>
+      </body>
     </html>
   )
 }
