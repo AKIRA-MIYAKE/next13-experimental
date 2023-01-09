@@ -1,7 +1,7 @@
-import { Container } from "../../components/layout/Container";
-import { AppHeader } from "../../components/app-header/AppHeader";
+import { Container } from '../../components/layout/Container'
+import { AppHeader } from '../../components/app-header/AppHeader'
 
-import { ClientAccountDetail } from "./components/ClientAccountDetail";
+import { ClientAccountDetail } from './components/ClientAccountDetail'
 
 const Page: () => Promise<JSX.Element> = async () => {
   return (

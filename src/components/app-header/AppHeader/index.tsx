@@ -2,7 +2,7 @@ import type { FC } from 'react'
 
 import { Container } from '../../layout/Container'
 import { AppHeaderLogo } from '../AppHeaderLogo'
-import { ClientAppHeaderAccountArea  } from '../ClientAppHeaderAccountArea'
+import { ClientAppHeaderAccountArea } from '../ClientAppHeaderAccountArea'
 
 export const AppHeader: FC = () => {
   return (

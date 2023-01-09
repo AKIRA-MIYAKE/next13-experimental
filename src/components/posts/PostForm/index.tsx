@@ -1,11 +1,11 @@
-import type { FC, ChangeEventHandler, FormEventHandler} from "react";
-import { useState, useCallback } from "react";
+import type { FC, ChangeEventHandler, FormEventHandler } from 'react'
+import { useState, useCallback } from 'react'
 
-import type { Post } from "../../../interfaces";
+import type { Post } from '../../../interfaces'
 
 export interface PostFormProps {
   defaultValue?: Post
-  onSubmit: (values: { title: string, body: string }) => void
+  onSubmit: (values: { title: string; body: string }) => void
   onRequireDeleting?: () => void
 }
 
@@ -14,24 +14,36 @@ export const PostForm: FC<PostFormProps> = ({
   onSubmit,
   onRequireDeleting,
 }) => {
-  const [inputTitle, setInputTitle] = useState(defaultValue ? defaultValue.title : '')
-  const [inputBody, setInputBody] = useState(defaultValue ? defaultValue.body : '')
+  const [inputTitle, setInputTitle] = useState(
+    defaultValue ? defaultValue.title : ''
+  )
+  const [inputBody, setInputBody] = useState(
+    defaultValue ? defaultValue.body : ''
+  )
 
-  const onTitleInputChange = useCallback<ChangeEventHandler<HTMLInputElement>>((event) => {
-    setInputTitle(event.target.value)
-  }, [])
+  const onTitleInputChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
+    (event) => {
+      setInputTitle(event.target.value)
+    },
+    []
+  )
 
-  const onBodyTextareaChange = useCallback<ChangeEventHandler<HTMLTextAreaElement>>((event) => {
+  const onBodyTextareaChange = useCallback<
+    ChangeEventHandler<HTMLTextAreaElement>
+  >((event) => {
     setInputBody(event.target.value)
   }, [])
 
-  const onPostFormSubmit = useCallback<FormEventHandler>((event) => {
-    event.preventDefault()
+  const onPostFormSubmit = useCallback<FormEventHandler>(
+    (event) => {
+      event.preventDefault()
 
-    if (!inputTitle || !inputBody) return
+      if (!inputTitle || !inputBody) return
 
-    onSubmit({ title: inputTitle, body: inputBody })
-  }, [onSubmit, inputTitle, inputBody])
+      onSubmit({ title: inputTitle, body: inputBody })
+    },
+    [onSubmit, inputTitle, inputBody]
+  )
 
   const onDeleteButtonClick = useCallback(() => {
     if (!onRequireDeleting) return
@@ -69,9 +81,17 @@ export const PostForm: FC<PostFormProps> = ({
               Save
             </button>
           </div>
-          {defaultValue && <div>
-              <button type="button" className="btn btn-warning" onClick={onDeleteButtonClick}>Delete</button>
-            </div>}
+          {defaultValue && (
+            <div>
+              <button
+                type="button"
+                className="btn btn-warning"
+                onClick={onDeleteButtonClick}
+              >
+                Delete
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </form>

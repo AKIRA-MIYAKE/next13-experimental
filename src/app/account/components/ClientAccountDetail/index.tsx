@@ -1,10 +1,10 @@
 'use client'
 
-import type { FC } from "react"
-import { useCallback, useEffect } from "react"
-import { useRouter } from "next/navigation"
+import type { FC } from 'react'
+import { useCallback, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
-import { useAuthContext } from "../../../../contexts/AuthContext"
+import { useAuthContext } from '../../../../contexts/AuthContext'
 
 export const ClientAccountDetail: FC = () => {
   const router = useRouter()
@@ -52,7 +52,9 @@ export const ClientAccountDetail: FC = () => {
         </div>
 
         <div>
-          <button onClick={onSignOutButtonClick} className="btn btn-warning">Sign out</button>
+          <button onClick={onSignOutButtonClick} className="btn btn-warning">
+            Sign out
+          </button>
         </div>
       </div>
     </div>

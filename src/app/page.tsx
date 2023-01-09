@@ -38,6 +38,12 @@ const Page: () => Promise<JSX.Element> = async () => {
                 See page with `Data Fetching`
               </Link>
             </div>
+
+            <div>
+              <Link href="/traditional" className="link link-primary">
+                See page that rendered by `pages` directory
+              </Link>
+            </div>
           </div>
         </Container>
       </main>

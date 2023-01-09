@@ -1,12 +1,14 @@
-import { notFound } from "next/navigation";
-import Link from "next/link";
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
 
-import { Container } from "../../../../components/layout/Container";
+import { Container } from '../../../../components/layout/Container'
 
-import { readPost } from "../data";
-import { ClientPostForm } from "./components/ClientPostForm";
+import { readPost } from '../data'
+import { ClientPostForm } from './components/ClientPostForm'
 
-const Page: (props: { params: { postId: string }}) => Promise<JSX.Element> = async ({ params }) => {
+const Page: (props: {
+  params: { postId: string }
+}) => Promise<JSX.Element> = async ({ params }) => {
   const post = await readPost(params)
 
   if (!post) {

@@ -1,29 +1,37 @@
-import type { FC, ChangeEventHandler, FormEventHandler } from "react";
-import { useState, useCallback } from "react";
+import type { FC, ChangeEventHandler, FormEventHandler } from 'react'
+import { useState, useCallback } from 'react'
 
 export interface SignInFormProps {
-  onSubmit: (values: { email: string, password: string }) => void
+  onSubmit: (values: { email: string; password: string }) => void
 }
 
 export const SignInForm: FC<SignInFormProps> = ({ onSubmit }) => {
   const [inputEmail, setInputEmail] = useState('')
   const [inputPassword, setInputPassword] = useState('')
 
-  const onEmailInputChange = useCallback<ChangeEventHandler<HTMLInputElement>>((event) => {
-    setInputEmail(event.target.value)
-  }, [])
+  const onEmailInputChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
+    (event) => {
+      setInputEmail(event.target.value)
+    },
+    []
+  )
 
-  const onPasswordInputChange = useCallback<ChangeEventHandler<HTMLInputElement>>((event) => {
+  const onPasswordInputChange = useCallback<
+    ChangeEventHandler<HTMLInputElement>
+  >((event) => {
     setInputPassword(event.target.value)
   }, [])
 
-  const onFormSubmit = useCallback<FormEventHandler>((event) => {
-    event.preventDefault()
+  const onFormSubmit = useCallback<FormEventHandler>(
+    (event) => {
+      event.preventDefault()
 
-    if (!inputEmail || !inputPassword) return
+      if (!inputEmail || !inputPassword) return
 
-    onSubmit({ email: inputEmail, password: inputPassword })
-  }, [onSubmit, inputEmail, inputPassword])
+      onSubmit({ email: inputEmail, password: inputPassword })
+    },
+    [onSubmit, inputEmail, inputPassword]
+  )
 
   return (
     <form onSubmit={onFormSubmit}>

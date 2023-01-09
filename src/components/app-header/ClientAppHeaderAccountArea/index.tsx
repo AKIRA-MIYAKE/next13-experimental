@@ -1,10 +1,10 @@
 'use client'
 
-import type { FC } from "react"
+import type { FC } from 'react'
 
-import { useAuthContext } from "../../../contexts/AuthContext"
+import { useAuthContext } from '../../../contexts/AuthContext'
 
-import { AppHeaderAccountArea  } from "../AppHeaderAccountArea"
+import { AppHeaderAccountArea } from '../AppHeaderAccountArea'
 
 export const ClientAppHeaderAccountArea: FC = () => {
   const { isAuthReady, user } = useAuthContext()

@@ -1,8 +1,8 @@
-import Link from "next/link";
+import Link from 'next/link'
 
-import { Container } from "../../../components/layout/Container";
+import { Container } from '../../../components/layout/Container'
 
-import { ClientPostForm } from "./components/ClientPostForm";
+import { ClientPostForm } from './components/ClientPostForm'
 
 const Page: () => Promise<JSX.Element> = async () => {
   return (
@@ -16,20 +16,19 @@ const Page: () => Promise<JSX.Element> = async () => {
       </Container>
 
       <main>
-      <Container>
-        <div className="space-y-6 mb-6">
-          <div>
-            <h1 className="text-4xl font-bold">Create post</h1>
+        <Container>
+          <div className="space-y-6 mb-6">
+            <div>
+              <h1 className="text-4xl font-bold">Create post</h1>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <ClientPostForm />
-        </div>
-      </Container>
-    </main>
+          <div>
+            <ClientPostForm />
+          </div>
+        </Container>
+      </main>
     </>
-
   )
 }
 
