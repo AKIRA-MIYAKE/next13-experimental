@@ -31,7 +31,7 @@ export const ClientSignInForm: FC = () => {
     if (!isSignedIn) return
 
     router.replace('/')
-  }, [isAuthReady, isSignedIn])
+  }, [isAuthReady, isSignedIn]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return <SignInForm onSubmit={onSignInFormSubmit} />
 }

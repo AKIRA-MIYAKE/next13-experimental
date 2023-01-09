@@ -45,7 +45,7 @@ export const ClientPostForm: FC<ClientPostFormProps> = ({ post }) => {
         router.push(`/posts/${post.id}`)
       })
     },
-    [post.id, token]
+    [post.id, token] // eslint-disable-line react-hooks/exhaustive-deps
   )
 
   const onPostFormRequireDeleting = useCallback(async () => {
@@ -69,14 +69,14 @@ export const ClientPostForm: FC<ClientPostFormProps> = ({ post }) => {
       router.refresh()
       router.push('/posts')
     })
-  }, [post.id, token])
+  }, [post.id, token]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!isAuthReady) return
     if (isSignedIn) return
 
     router.replace(`/posts/${post.id}`)
-  }, [post.id, isAuthReady, isSignedIn])
+  }, [post.id, isAuthReady, isSignedIn]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <PostForm

@@ -40,7 +40,7 @@ export const ClientPostForm: FC = () => {
         router.push('/posts')
       })
     },
-    [token]
+    [token] // eslint-disable-line react-hooks/exhaustive-deps
   )
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export const ClientPostForm: FC = () => {
     if (isSignedIn) return
 
     router.replace('/posts')
-  }, [isAuthReady, isSignedIn])
+  }, [isAuthReady, isSignedIn]) // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!isSignedIn) {
     return null

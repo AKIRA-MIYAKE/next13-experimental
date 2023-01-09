@@ -20,7 +20,7 @@ export const ClientAccountDetail: FC = () => {
     if (user) return
 
     router.replace('/signin')
-  }, [isAuthReady, user])
+  }, [isAuthReady, user]) // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!user) {
     return <div>Loading...</div>
