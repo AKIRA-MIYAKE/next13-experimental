@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import { Container } from '../../../components/layout/Container'
+import { ClientSignInRequired } from '../../../components/commons/ClientSignInReauired'
 
 import { ClientPostForm } from './components/ClientPostForm'
 
@@ -28,6 +29,8 @@ const Page: () => Promise<JSX.Element> = async () => {
           </div>
         </Container>
       </main>
+
+      <ClientSignInRequired />
     </>
   )
 }

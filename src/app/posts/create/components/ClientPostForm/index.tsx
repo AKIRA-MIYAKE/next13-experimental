@@ -1,7 +1,7 @@
 'use client'
 
 import type { FC } from 'react'
-import { useCallback, useEffect, startTransition } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
 import { useAuthContext } from '../../../../../contexts/AuthContext'
@@ -13,7 +13,7 @@ import {
 export const ClientPostForm: FC = () => {
   const router = useRouter()
 
-  const { isAuthReady, isSignedIn, token } = useAuthContext()
+  const { token } = useAuthContext()
 
   const onPostFormSubmit = useCallback<PostFormProps['onSubmit']>(
     async ({ title, body }) => {
@@ -35,24 +35,10 @@ export const ClientPostForm: FC = () => {
         return
       }
 
-      startTransition(() => {
-        router.refresh()
-        router.push('/posts')
-      })
+      router.push('/posts?refresh=true')
     },
-    [token] // eslint-disable-line react-hooks/exhaustive-deps
+    [router, token]
   )
-
-  useEffect(() => {
-    if (!isAuthReady) return
-    if (isSignedIn) return
-
-    router.replace('/posts')
-  }, [isAuthReady, isSignedIn]) // eslint-disable-line react-hooks/exhaustive-deps
-
-  if (!isSignedIn) {
-    return null
-  }
 
   return <PostForm onSubmit={onPostFormSubmit} />
 }

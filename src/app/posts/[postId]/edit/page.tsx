@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 
 import { Container } from '../../../../components/layout/Container'
+import { ClientSignInRequired } from '../../../../components/commons/ClientSignInReauired'
 
 import { readPost } from '../data'
 import { ClientPostForm } from './components/ClientPostForm'
@@ -40,6 +41,8 @@ const Page: (props: {
           </div>
         </Container>
       </main>
+
+      <ClientSignInRequired />
     </>
   )
 }

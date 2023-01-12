@@ -1,7 +1,7 @@
 'use client'
 
 import type { FC } from 'react'
-import { useCallback, useEffect, startTransition } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
 import type { Post } from '../../../../../../interfaces'
@@ -18,7 +18,7 @@ export interface ClientPostFormProps {
 export const ClientPostForm: FC<ClientPostFormProps> = ({ post }) => {
   const router = useRouter()
 
-  const { isAuthReady, isSignedIn, token } = useAuthContext()
+  const { token } = useAuthContext()
 
   const onPostFormSubmit = useCallback<PostFormProps['onSubmit']>(
     async ({ title, body }) => {
@@ -40,12 +40,9 @@ export const ClientPostForm: FC<ClientPostFormProps> = ({ post }) => {
         return
       }
 
-      startTransition(() => {
-        router.refresh()
-        router.push(`/posts/${post.id}`)
-      })
+      router.push(`/posts/${post.id}?refresh=true`)
     },
-    [post.id, token] // eslint-disable-line react-hooks/exhaustive-deps
+    [router, post.id, token]
   )
 
   const onPostFormRequireDeleting = useCallback(async () => {
@@ -65,18 +62,8 @@ export const ClientPostForm: FC<ClientPostFormProps> = ({ post }) => {
       return
     }
 
-    startTransition(() => {
-      router.refresh()
-      router.push('/posts')
-    })
-  }, [post.id, token]) // eslint-disable-line react-hooks/exhaustive-deps
-
-  useEffect(() => {
-    if (!isAuthReady) return
-    if (isSignedIn) return
-
-    router.replace(`/posts/${post.id}`)
-  }, [post.id, isAuthReady, isSignedIn]) // eslint-disable-line react-hooks/exhaustive-deps
+    router.push('/posts?refresh=true')
+  }, [router, post.id, token])
 
   return (
     <PostForm

@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 
 import { Container } from '../../../components/layout/Container'
+import { ClientRouterRefreshIfNeeded } from '../../../components/commons/ClientRouterRefreshIfNeeded'
 
 import { readPost } from './data'
 import { ClientAuthorToolbar } from './components/ClientAuthorToolbar'
@@ -45,6 +46,8 @@ const Page: (props: {
           </div>
         </Container>
       </main>
+
+      <ClientRouterRefreshIfNeeded />
     </>
   )
 }
