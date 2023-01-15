@@ -22,6 +22,10 @@ export const ClientRouterRefreshIfNeeded: FC = () => {
           return acc
         }
 
+        if (acc.length === 0) {
+          return `${key}=${value}`
+        }
+
         return `${acc}&${key}=${value}`
       },
       ''
